@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Laporan extends Model
 {
     use HasFactory;
+
+    public function menu(){
+        return $this->belongsTo('App\Models\Menu');
+    }
 }

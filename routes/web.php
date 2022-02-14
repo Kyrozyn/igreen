@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/login',[\App\Http\Controllers\Api::class,'checkAccount']);
+Route::get('/frontmenu',[\App\Http\Controllers\Api::class,'getFrontMenu']);
+Route::get('/frontmenu/$1',[\App\Http\Controllers\Api::class,'getMenu']);

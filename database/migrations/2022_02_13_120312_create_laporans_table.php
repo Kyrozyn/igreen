@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
             $table->string('id_laporan');
+            $table->string('id_menu')->nullable();
             $table->string('name');
-            $table->enum('type',['image','video','imagevideo','text','option']);
-            $table->unsignedBigInteger('parent_menu');
+            $table->enum('type',['image','video','imagevideo','text','option'])->nullable();
+            $table->unsignedBigInteger('parent_laporan')->nullable();
+            $table->boolean('have_child')->default(false);
             $table->timestamps();
         });
     }
