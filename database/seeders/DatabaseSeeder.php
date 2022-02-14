@@ -14,6 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory(10)->create();
+        $this->user();
+    }
+
+    public function user(){
+        $SuperAdmin = new User();
+        $SuperAdmin->name = 'Superadmin';
+        $SuperAdmin->email = 'superadmin@gmail.com';
+        $SuperAdmin->password = \Hash::make('password');
+        $SuperAdmin->save();
     }
 }
