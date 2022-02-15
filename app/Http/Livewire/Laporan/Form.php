@@ -23,10 +23,21 @@ class Form extends Component
     }
 
     public function submit(){
-        $this->validate([
-            'idlaporan' => 'required',
-            'namalaporan' => 'required',
-        ]);
+
+        if($this->parent=="Menu"){
+            $this->validate([
+                'idlaporan' => 'required',
+                'namalaporan' => 'required',
+                'parentmenu' => 'required'
+            ]);
+        }
+        if($this->parent=="Laporan"){
+            $this->validate([
+                'idlaporan' => 'required',
+                'namalaporan' => 'required',
+                'parentlaporan' => 'required'
+            ]);
+        }
         $laporan = new Laporan();
         $laporan->id_laporan = $this->idlaporan;
         $laporan->name = $this->namalaporan;
