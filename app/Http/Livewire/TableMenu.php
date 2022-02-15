@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Laporan;
 use App\Models\Menu;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -20,7 +21,12 @@ class TableMenu extends Component
     public function delete($id)
     {
         $menu = Menu::find($id);
-        $menu->delete();
-        $this->alert('success', 'Menu berhasil dihapus');
+        $laporan = Laporan::whereIdLaporan($menu->id_laporan)->get();
+        if($laporan->count() > 0) {
+            $this->alert('danger', 'Menu tidak bisa dihapus karena sudah ada laporan yang menggunakan menu ini');
+        } else {
+            $menu->delete();
+            $this->alert('success', 'Menu berhasil dihapus');
+        }
     }
 }
