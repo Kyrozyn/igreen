@@ -47,8 +47,10 @@ class Form extends Component
         if($this->parent=="Laporan"){
             $laporan->parent_laporan = $this->parentlaporan;
         }
-        $laporan->type = $this->jenislaporan;
         $laporan->have_child = $this->child;
+        if($this->child==0){
+            $laporan->type = $this->jenislaporan;
+        }
         $laporan->save();
 
         $this->alert('success', 'Berhasil Menambahkan Laporan');
