@@ -16,7 +16,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $id_laporan
- * @property string|null $id_menu
+ * @property int|null $menu_id
  * @property string $name
  * @property string|null $type
  * @property int|null $parent_laporan
@@ -31,7 +31,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereHaveChild($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereIdLaporan($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereIdMenu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereMenuId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereParentLaporan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereType($value)

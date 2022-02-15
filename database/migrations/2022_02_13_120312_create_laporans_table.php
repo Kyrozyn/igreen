@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('laporans', function (Blueprint $table) {
             $table->id();
             $table->string('id_laporan');
-            $table->string('id_menu')->nullable();
+            $table->foreignIdFor(\App\Models\Menu::class)->nullable();
             $table->string('name');
             $table->enum('type',['image','video','imagevideo','text','option'])->nullable();
             $table->unsignedBigInteger('parent_laporan')->nullable();

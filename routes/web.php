@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::post('/login',[\App\Http\Controllers\Api::class,'checkAccount']);
 Route::get('/frontmenu',[\App\Http\Controllers\Api::class,'getFrontMenu']);
 Route::get('/frontmenu/$1',[\App\Http\Controllers\Api::class,'getMenu']);
+
+Route::get('/dashboard',[\App\Http\Controllers\Dashboard::class,'dashboard']);
+Route::get('/dashboard/menu/add',\App\Http\Livewire\FormMenu::class);
+Route::get('/dashboard/menu/',\App\Http\Livewire\TableMenu::class);
+
+Route::get('/dashboard/laporan/add',\App\Http\Livewire\Laporan\Form::class);
