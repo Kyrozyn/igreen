@@ -18,6 +18,12 @@ class Table extends Component
 
     public function delete($id){
         $laporan = Laporan::find($id);
+        if($laporan->have_child == 1){
+            $laporanchild = Laporan::whereParentLaporan($laporan->id)->get();
+            foreach ($laporanchild as $lap){
+                $lap->delete();
+            }
+        }
         $laporan->delete();
         $this->alert('success', 'Laporan berhasil dihapus');
     }

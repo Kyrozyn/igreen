@@ -46,12 +46,12 @@
                     @foreach($laporans as $laporan)
                         <tr>
                             <th class="text-center" scope="row">{{$laporan->id_laporan}}</th>
-                            <th class="text-center" scope="row">{{$laporan->menu_id ? 'Menu' : 'Laporan'}} : {{$laporan->menu_id ?? $laporan->parent_laporan}}</th>
+                            <th class="text-center" scope="row">{{$laporan->menu_id ? 'Menu' : 'Laporan'}} : {{$laporan->menu_id ? $laporan->menu->id_menu : \App\Models\Laporan::whereId($laporan->parent_laporan)->first()->id_laporan}}</th>
                             <td class="font-w600">
                                 <a href="#">{{$laporan->name}}</a>
                             </td>
                             <th scope="row">{{$laporan->type}}</th>
-                            <th scope="row">{{$laporan->havechild ? 'Ya' : 'Tidak'}}</th>
+                            <th scope="row">@if($laporan->have_child) Ya @else Tidak @endif</th>
                             <td class="d-none d-sm-table-cell">
                                 <span class="badge badge-warning">{{$laporan->created_at}}</span>
                             </td>
