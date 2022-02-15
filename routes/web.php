@@ -26,3 +26,4 @@ Route::get('/dashboard/menu/add',\App\Http\Livewire\FormMenu::class);
 Route::get('/dashboard/menu/',\App\Http\Livewire\TableMenu::class);
 
 Route::get('/dashboard/laporan/add',\App\Http\Livewire\Laporan\Form::class);
+Route::get('/dashboard/laporan/',\App\Http\Livewire\Laporan\Table::class);

@@ -104,7 +104,7 @@ MAIN CONTENT LAYOUT
         <div class="bg-header-dark">
             <div class="content-header bg-white-10">
                 <!-- Logo -->
-                <a class="font-w600 text-white tracking-wide" href="">
+                <a class="font-w600 text-w  hite tracking-wide" href="">
                             <span class="smini-visible">
                                 i<span class="opacity-75">G</span>
                             </span>
@@ -142,7 +142,7 @@ MAIN CONTENT LAYOUT
             <div class="content-side">
                 <ul class="nav-main">
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="gs_backend.html">
+                        <a class="nav-main-link" href="{{url('/dashboard')}}">
                             <i class="nav-main-link-icon fa fa-rocket"></i>
                             <span class="nav-main-link-name">Dashboard</span>
                         </a>
@@ -155,7 +155,7 @@ MAIN CONTENT LAYOUT
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{url('/dashboard/menu/list')}}">
+                        <a class="nav-main-link" href="{{url('/dashboard/menu   ')}}">
                             <i class="nav-main-link-icon fa fa-book"></i>
                             <span class="nav-main-link-name">List Menu</span>
                         </a>
@@ -168,7 +168,7 @@ MAIN CONTENT LAYOUT
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{url('/dashboard/laporan/list')}}">
+                        <a class="nav-main-link" href="{{url('/dashboard/laporan')}}">
                             <i class="nav-main-link-icon fa fa-book"></i>
                             <span class="nav-main-link-name">List Laporan</span>
                         </a>

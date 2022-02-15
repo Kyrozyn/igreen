@@ -39,7 +39,7 @@
                     <select class="form-control" id="example-select" name="example-select" wire:model="parentmenu">
                         <option value="">Pilih Parent</option>
                         @foreach($menus as $menu)
-                        <option value="{{ $menu->id }}">{{ $menu->name }}</option>
+                        <option value="{{ $menu->id }}">{{$menu->id_menu}} {{ $menu->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -50,7 +50,7 @@
                         <select class="form-control" id="example-select" name="example-select" wire:model="parentlaporan">
                             <option value="">Pilih Parent</option>
                             @foreach($laporans as $laporan)
-                                <option value="{{ $laporan->id }}">{{ $laporan->name }}</option>
+                                <option value="{{ $laporan->id }}">{{$laporan->id_laporan}} {{ $laporan->name }}</option>
                             @endforeach
                         </select>
                     </div>
