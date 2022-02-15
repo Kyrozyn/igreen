@@ -42,6 +42,7 @@
                         <option value="{{ $menu->id }}">{{$menu->id_menu}} {{ $menu->name }}</option>
                         @endforeach
                     </select>
+                    @error('parentmenu') <div id="error" style="color: red">{{$message}}</div> @enderror
                 </div>
                 @endif
                 @if($parent == 'Laporan')
@@ -53,6 +54,7 @@
                                 <option value="{{ $laporan->id }}">{{$laporan->id_laporan}} {{ $laporan->name }}</option>
                             @endforeach
                         </select>
+                        @error('parentlaporan') <div id="error" style="color: red">{{$message}}</div> @enderror
                     </div>
                 @endif
                 <div class="form-group">
