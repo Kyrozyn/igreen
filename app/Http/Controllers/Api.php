@@ -22,15 +22,15 @@ class Api extends Controller
             if (password_verify($password, $user->password)) {
                 return response()->json(['status' => 200, 'message' => 'Account found','user_id' => $user->id,'user_email' => $email,'name' => $user->name, 200]);
             } else {
-                return response()->json(['status' => 403, 'message' => 'Wrong password', 403]);
+                return response('',403)->json(['status' => 403, 'message' => 'Wrong password']);
             }
         }
-        return response()->json(['status' => 404, 'message' => 'Account not found','email' => $email, 404]);
+        return response('',404)->json(['status' => 404, 'message' => 'Account not found','email' => $email]);
     }
 
     public function getFrontMenu(){
         $frontmenu = FrontMenu::all();
-        return response()->json(['status' => 200, 'message' => 'Success', 'data' => $frontmenu, 200]);
+        return response()->json(['status' => 200, 'message' => 'Success', 'data' => $frontmenu]);
     }
 
     public function getMenu(Request $request){
@@ -71,11 +71,11 @@ class Api extends Controller
                 return response()->json(['status' => 200, 'message' => 'Success', 'laporan' => $laporan,'submitted_laporan' => $laporanuser, 200]);
             }
             else{
-                return response()->json(['status' => 404, 'message' => 'Laporan not found', 404]);
+                return response('',404)->json(['status' => 404, 'message' => 'Laporan not found']);
             }
         }
         catch (\Exception $e) {
-            return response()->json(['status' => 500, 'message' => 'Internal Server Error', 'error' => $e->getMessage(), 500]);
+            return response('',500)->json(['status' => 500, 'message' => 'Internal Server Error', 'error' => $e->getMessage()]);
         }
 
 
