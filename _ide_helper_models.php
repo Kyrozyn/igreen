@@ -12,15 +12,33 @@
 
 namespace App\Models{
 /**
+ * App\Models\FrontMenu
+ *
+ * @property int $id
+ * @property string $name
+ * @property string|null $icon_url
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|FrontMenu newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|FrontMenu newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|FrontMenu query()
+ * @method static \Illuminate\Database\Eloquent\Builder|FrontMenu whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FrontMenu whereIconUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FrontMenu whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FrontMenu whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FrontMenu whereUpdatedAt($value)
+ */
+	class FrontMenu extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Laporan
  *
  * @property int $id
- * @property string $id_laporan
  * @property int|null $menu_id
  * @property string $name
  * @property string|null $type
- * @property int|null $parent_laporan
- * @property int $have_child
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Menu|null $menu
@@ -28,16 +46,35 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan query()
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereHaveChild($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereIdLaporan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereMenuId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereParentLaporan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereUpdatedAt($value)
  */
 	class Laporan extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\LaporanUser
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $content
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser query()
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereUserId($value)
+ */
+	class LaporanUser extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -47,6 +84,10 @@ namespace App\Models{
  * @property int $id
  * @property string $id_menu
  * @property string $name
+ * @property int $front_menu_id
+ * @property int|null $parent_menu
+ * @property string|null $schedule
+ * @property int $have_submenu
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Laporan[] $laporan
@@ -55,9 +96,13 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Menu newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Menu query()
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereFrontMenuId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereHaveSubmenu($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereIdMenu($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereParentMenu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereSchedule($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereUpdatedAt($value)
  */
 	class Menu extends \Eloquent {}
@@ -75,6 +120,8 @@ namespace App\Models{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\LaporanUser[] $laporanuser
+ * @property-read int|null $laporanuser_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Permission[] $permissions

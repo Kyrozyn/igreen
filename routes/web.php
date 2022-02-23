@@ -18,8 +18,16 @@ Route::get('/', function () {
 });
 
 Route::post('/login',[\App\Http\Controllers\Api::class,'checkAccount']);
-Route::get('/frontmenu',[\App\Http\Controllers\Api::class,'getFrontMenu']);
-Route::get('/frontmenu/$1',[\App\Http\Controllers\Api::class,'getMenu']);
+
+Route::get('/getfrontmenu',[\App\Http\Controllers\Api::class,'getFrontMenu']);
+Route::post('/getmenu',[\App\Http\Controllers\Api::class,'getMenu']);
+Route::post('/getchildmenu',[\App\Http\Controllers\Api::class,'getChildMenu']);
+Route::post('/getlaporanmenu',[\App\Http\Controllers\Api::class,'getLaporanMenu']);
+Route::post('/postLaporan',[\App\Http\Controllers\Api::class,'postLaporan']);
+
+
+
+
 
 Route::get('/dashboard',[\App\Http\Controllers\Dashboard::class,'dashboard']);
 Route::get('/dashboard/menu/add',\App\Http\Livewire\FormMenu::class);

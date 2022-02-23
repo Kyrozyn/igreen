@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FrontMenu;
+use App\Models\LaporanUser;
 use App\Models\Menu;
 use App\Models\User;
+use Carbon\PHPStan\AbstractMacro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class Api extends Controller
 {
@@ -16,7 +20,7 @@ class Api extends Controller
         $user = User::where('email', $email)->first();
         if ($user) {
             if (password_verify($password, $user->password)) {
-                return response()->json(['status' => 200, 'message' => 'Account found','email' => $email, 200]);
+                return response()->json(['status' => 200, 'message' => 'Account found','user_id' => $user->id,'user_email' => $email,'name' => $user->name, 200]);
             } else {
                 return response()->json(['status' => 403, 'message' => 'Wrong password', 403]);
             }
@@ -24,33 +28,46 @@ class Api extends Controller
         return response()->json(['status' => 404, 'message' => 'Account not found','email' => $email, 404]);
     }
 
-    public function getFrontMenu()
-    {
-        $menu = Menu::all();
-        return response()->json(['status' => 200, 'message' => 'Menu found', 'data' => $menu, 200]);
+    public function getFrontMenu(){
+        $frontmenu = FrontMenu::all();
+        return response()->json(['status' => 200, 'message' => 'Success', 'data' => $frontmenu, 200]);
     }
 
-    public function getMenu(Menu $menu)
-    {
-        $laporan = \App\Models\Laporan::where('menu_id', $menu->id)->get();
-        return response()->json(['status' => 200, 'message' => 'Menu found', 'data' => $menu, 'laporan' => $laporan, 200]);
+    public function getMenu(Request $request){
+        $id = $request->post('frontmenu_id');
+        $menu = Menu::whereFrontMenuId($id)->get();
+        return response()->json(['status' => 200, 'message' => 'Success', 'data' => $menu, 200]);
     }
 
-    public function getLaporan(Laporan $laporan)
-    {
-        return response()->json(['status' => 200, 'message' => 'Laporan found', 'data' => $laporan, 200]);
+    public function getChildMenu(Request $request){
+        $id = $request->post('parent_id');
+        $menu = Menu::whereParentMenu($id)->get();
+        return response()->json(['status' => 200, 'message' => 'Success', 'data' => $menu, 200]);
     }
 
-    public function getAllLaporanFromMenu($id_menu)
-    {
-        $laporan = \App\Models\Laporan::where('menu_id', $id_menu)->get();
-        return response()->json(['status' => 200, 'message' => 'Laporan found', 'data' => $laporan, 200]);
+    public function getLaporanMenu(Request $request){
+        $id = $request->post('frontmenu_id');
+        $menu = Menu::whereId($id)->first();
+        $laporan = $menu->laporan->get();
+        return response()->json(['status' => 200, 'message' => 'Success', 'data' => $laporan, 200]);
     }
 
-    public function getAllLaporan()
-    {
-        $laporan = \App\Models\Laporan::all();
-        return response()->json(['status' => 200, 'message' => 'Laporan found', 'data' => $laporan, 200]);
+    public function postLaporan(Request $request,$id){
+        $laporan = \App\Models\Laporan::whereId($id)->first();
+        $laporanuser = new LaporanUser();
+        /// user, content
+        $laporanuser->user_id = $request->post('user_id');
+        if($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo'){
+            $laporanuser->save();
+            $file = $request->file('file');
+            $laporanuser->addMedia($file)->toMediaCollection('file-'.Carbon::now()->format('Ymd'));
+        }
+        else{
+            $laporanuser->content = $request->post('content');
+            $laporanuser->save();
+        }
     }
+
+
 
 }

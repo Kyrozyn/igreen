@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('front_menus', function (Blueprint $table) {
             $table->id();
-            $table->string('id_menu')->index();
             $table->string('name');
-            $table->foreignIdFor(\App\Models\FrontMenu::class);
-            $table->unsignedBigInteger('parent_menu')->nullable();
-            $table->enum('schedule', ['daily', 'weekly', 'monthly', 'yearly'])->nullable();
-            $table->boolean('have_submenu')->default(true);
+            $table->string('icon_url')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('front_menus');
     }
 };
