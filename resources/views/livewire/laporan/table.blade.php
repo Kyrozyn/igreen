@@ -22,6 +22,24 @@
         <!-- Your Block -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
+                <h3 class="block-title">Aksi</h3>
+                <div class="block-options">
+                    <div class="block-options-item">
+                        <code></code>
+                    </div>
+                </div>
+            </div>
+            <div class="block-content">
+                <div class="form-group">
+                    <button onclick="history.back()" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit">Kembali</button>
+                    <a href="{{url('/dashboard/laporan/add/'.$menu_id)}}" class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit">Tambah Laporan</a>
+                </div>
+            </div>
+        </div>
+        <!-- END Your Block -->
+        <!-- Your Block -->
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
                 <h3 class="block-title">Data</h3>
                 <div class="block-options">
                     <div class="block-options-item">
@@ -33,8 +51,6 @@
                 <table class="table table-bordered table-vcenter">
                     <thead>
                     <tr>
-                        <th class="text-center" style="width: 100px;">ID Laporan</th>
-                        <th>Parent Menu</th>
                         <th>Nama Laporan</th>
                         <th>Jenis Laporan</th>
                         <th class="d-none d-sm-table-cell" style="width: 30%;">Ditambahkan Tanggal</th>
@@ -44,8 +60,6 @@
                     <tbody>
                     @foreach($laporans as $laporan)
                         <tr>
-                            <th class="text-center" scope="row">{{$laporan->id_laporan}}</th>
-                            <th class="text-center" scope="row">{{$laporan->menu->name}}</th>
                             <td class="font-w600">
                                 <a href="#">{{$laporan->name}}</a>
                             </td>

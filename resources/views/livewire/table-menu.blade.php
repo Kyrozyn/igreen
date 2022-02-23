@@ -65,7 +65,7 @@
                         <td class="font-w600">
                             <a href="#">{{$menu->name}}</a>
                         </td>
-                        <td class="d-none d-sm-table-cell">
+                        <td class="">
                             @if($menu->have_submenu == 1)
                                 <span class="badge badge-success">Ya</span>
                             @else
@@ -81,6 +81,10 @@
                                 <a href="{{url('/dashboard/menu/menu/'.$menu->id)}}" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Edit">
                                     Lihat Submenu
                                 </a>
+                                @elseif($menu->have_submenu == 0)
+                                    <a href="{{url('/dashboard/laporan/'.$menu->id)}}" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Edit">
+                                        Lihat Laporan
+                                    </a>
                                 @endif
                                 <button type="button" class="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title="" data-original-title="Delete" wire:click="delete({{$menu->id}})">
                                     Hapus
