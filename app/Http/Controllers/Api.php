@@ -47,8 +47,7 @@ class Api extends Controller
 
     public function getLaporanMenu(Request $request){
         $id = $request->post('menu_id');
-        $menu = Menu::whereId($id)->first();
-        $laporan = $menu->laporan->get();
+        $laporan = \App\Models\Laporan::whereMenuId($id)->get();
         return response()->json(['status' => 200, 'message' => 'Success', 'data' => $laporan, 200]);
     }
 
