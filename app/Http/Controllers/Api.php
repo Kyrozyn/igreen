@@ -51,19 +51,33 @@ class Api extends Controller
         return response()->json(['status' => 200, 'message' => 'Success', 'data' => $laporan, 200]);
     }
 
-    public function postLaporan(Request $request,$id){
-        $laporan = \App\Models\Laporan::whereId($id)->first();
-        $laporanuser = new LaporanUser();
-        /// user, content
-        $laporanuser->user_id = $request->post('user_id');
-        if($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo'){
-            $laporanuser->save();
-            $file = $request->file('file');
-            $laporanuser->addMedia($file)->toMediaCollection('file-'.Carbon::now()->format('Ymd'));
+    public function postLaporan(Request $request){
+        $id = $request->post('laporan_id');
+        try {
+            $laporan = \App\Models\Laporan::whereId($id)->first();
+            if($laporan){
+                $laporanuser = new LaporanUser();
+                /// user, content
+                $laporanuser->user_id = $request->post('user_id');
+                if($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo'){
+                    $laporanuser->save();
+                    $file = $request->file('file');
+                    $laporanuser->addMedia($file)->toMediaCollection('file-'.Carbon::now()->format('Ymd'));
+                }
+                else{
+                    $laporanuser->content = $request->post('content');
+                    $laporanuser->save();
+                }
+                return response()->json(['status' => 200, 'message' => 'Success', 'laporan' => $laporan,'submitted_laporan' => $laporanuser, 200]);
+            }
+            else{
+                return response()->json(['status' => 404, 'message' => 'Laporan not found', 404]);
+            }
         }
-        else{
-            $laporanuser->content = $request->post('content');
-            $laporanuser->save();
+        catch (\Exception $e) {
+            return response()->json(['status' => 500, 'message' => 'Internal Server Error', 'error' => $e->getMessage(), 500]);
         }
+
+
     }
 }
