@@ -46,7 +46,7 @@ class Api extends Controller
     }
 
     public function getLaporanMenu(Request $request){
-        $id = $request->post('frontmenu_id');
+        $id = $request->post('menu_id');
         $menu = Menu::whereId($id)->first();
         $laporan = $menu->laporan->get();
         return response()->json(['status' => 200, 'message' => 'Success', 'data' => $laporan, 200]);
@@ -67,7 +67,4 @@ class Api extends Controller
             $laporanuser->save();
         }
     }
-
-
-
 }
