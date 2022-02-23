@@ -22,10 +22,10 @@ class Api extends Controller
             if (password_verify($password, $user->password)) {
                 return response()->json(['status' => 200, 'message' => 'Account found','user_id' => $user->id,'user_email' => $email,'name' => $user->name, 200]);
             } else {
-                return response('',403)->json(['status' => 403, 'message' => 'Wrong password']);
+                return response(['status' => 403, 'message' => 'Wrong password'],403);
             }
         }
-        return response('',404)->json(['status' => 404, 'message' => 'Account not found','email' => $email]);
+        return response(['status' => 404, 'message' => 'Account not found','email' => $email],404);
     }
 
     public function getFrontMenu(){
@@ -71,11 +71,11 @@ class Api extends Controller
                 return response()->json(['status' => 200, 'message' => 'Success', 'laporan' => $laporan,'submitted_laporan' => $laporanuser, 200]);
             }
             else{
-                return response('',404)->json(['status' => 404, 'message' => 'Laporan not found']);
+                return response(['status' => 404, 'message' => 'Laporan not found'],404);
             }
         }
         catch (\Exception $e) {
-            return response('',500)->json(['status' => 500, 'message' => 'Internal Server Error', 'error' => $e->getMessage()]);
+            return response(['status' => 500, 'message' => 'Internal Server Error', 'error' => $e->getMessage()],500);
         }
 
 
