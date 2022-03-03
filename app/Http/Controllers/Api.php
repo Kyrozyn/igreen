@@ -35,7 +35,7 @@ class Api extends Controller
 
     public function getMenu(Request $request){
         $id = $request->post('frontmenu_id');
-        $menu = Menu::whereFrontMenuId($id)->get();
+        $menu = Menu::whereFrontMenuId($id)->where('parent_menu',null)->get();
         return response()->json(['status' => 200, 'message' => 'Success', 'data' => $menu, 200]);
     }
 
