@@ -19,25 +19,55 @@
 
     <!-- Page Content -->
     <div class="content">
-        <!-- Your Block -->
-        <form wire:submit.prevent="submit">
-            <div class="col-lg-8 col-xl-5">
-                <div class="form-group">
-                    <label for="idmenu">ID Menu</label>
-                    <input type="text" class="form-control" id="idmenu" name="idmenu" placeholder="idmenu" wire:model="idmenu">
-                    @error('idmenu') <div id="error">{{$message}}</div> @enderror
-                </div>
-                <div class="form-group">
-                    <label for="name">Nama Menu</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nama" wire:model="nama">
-                    @error('nama') <div id="error">{{$message}}</div> @enderror
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit" >Submit</button>
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">Detail Menu</div>
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="form-group">
+                            <label for="idmenu">ID Menu</label>
+                            <input type="text" class="form-control" id="idmenu" name="idmenu" placeholder="idmenu"
+                                   wire:model="idmenu">
+                            @error('idmenu')
+                            <div id="error">{{$message}}</div> @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Nama Menu</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nama"
+                                   wire:model="name">
+                            @error('nama')
+                            <div id="error">{{$message}}</div> @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="d-block">Apakah memiliki Submenu?</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="submenu1" name="submenu" value="1" wire:model="havesubmenu">
+                                <label class="form-check-label" for="submenu1">Ya</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="submenu0" name="submenu" value="0" wire:model="havesubmenu">
+                                <label class="form-check-label" for="submenu0">Tidak</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
-        <!-- END Your Block -->
+        </div>
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">Aksi</div>
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="form-group">
+                            <a href="{{url()->previous()}}" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit" type="submit">Kembali</a>
+
+                            <button class="btn btn-primary" id="btnsubmit" name="btnsubmit" wire:click="submitdata">Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- END Page Content -->
 </main>

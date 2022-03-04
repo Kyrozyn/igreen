@@ -22,7 +22,25 @@
         <!-- Your Block -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Data</h3>
+                <h3 class="block-title">Aksi</h3>
+                <div class="block-options">
+                    <div class="block-options-item">
+                        <code></code>
+                    </div>
+                </div>
+            </div>
+            <div class="block-content">
+                <div class="form-group">
+                    <a href="{{url()->previous()}}" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit" type="submit">Kembali</a>
+                    <a href="{{url('/dashboard/menu/add/'.$origin.'/'.$frontmenuid.'/'.$idorigin)}}" class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit">Tambah Menu</a>
+                </div>
+            </div>
+        </div>
+        <!-- END Your Block -->
+        <!-- Your Block -->
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">List Menu</h3>
                 <div class="block-options">
                     <div class="block-options-item">
                         <code></code>
@@ -35,6 +53,7 @@
                     <tr>
                         <th class="text-center" style="width: 100px;">ID Menu</th>
                         <th>Nama Menu</th>
+                        <th>Mempunyai Submenu?</th>
                         <th class="d-none d-sm-table-cell" style="width: 30%;">Ditambahkan Tanggal</th>
                         <th class="text-center" style="width: 100px;">Actions</th>
                     </tr>
@@ -47,15 +66,24 @@
                             <a href="#">{{$menu->name}}</a>
                         </td>
                         <td class="d-none d-sm-table-cell">
+                            @if($menu->have_submenu == 1)
+                                <span class="badge badge-success">Ya</span>
+                            @else
+                                <span class="badge badge-danger">Tidak</span>
+                            @endif
+                        </td>
+                        <td class="d-none d-sm-table-cell">
                             <span class="badge badge-warning">{{$menu->created_at  }}</span>
                         </td>
                         <td class="text-center">
                             <div class="btn-group">
-{{--                                <button type="button" class="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title="" data-original-title="Edit">--}}
-{{--                                    <i class="fa fa-pencil-alt"></i>--}}
-{{--                                </button>--}}
+                                @if($menu->have_submenu == 1)
+                                <a href="{{url('/dashboard/menu/menu/'.$menu->id)}}" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Edit">
+                                    Lihat Submenu
+                                </a>
+                                @endif
                                 <button type="button" class="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title="" data-original-title="Delete" wire:click="delete({{$menu->id}})">
-                                    <i class="fa fa-times"></i>
+                                    Hapus
                                 </button>
                             </div>
                         </td>

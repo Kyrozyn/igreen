@@ -10,24 +10,39 @@ class FormMenu extends Component
 {
     use LivewireAlert;
 
-    public $nama, $idmenu;
+    public $idmenu,$name,$frontmenu_id,$idparentmenu;
+    public $havesubmenu=0;
+
+    public function mount($origin,$frontmenu_id,$id)
+    {
+        $this->frontmenu_id = $frontmenu_id;
+        if($origin=='frontmenu'){
+            $this->idparentmenu = null;
+        }
+        elseif($origin=='menu'){
+            $this->idparentmenu = $id;
+        }
+    }
 
     public function render()
     {
         return view('livewire.form-menu');
     }
 
-    public function submit(){
+    public function submitdata(){
         $this->validate([
-            'nama' => 'required',
+            'name' => 'required',
             'idmenu' => 'required'
         ]);
 
         $menu = new Menu();
-        $menu->name = $this->nama;
+        $menu->name = $this->name;
         $menu->id_menu = $this->idmenu;
+        $menu->front_menu_id = $this->frontmenu_id;
+        $menu->parent_menu = $this->idparentmenu;
+        $menu->have_submenu = $this->havesubmenu;
         $menu->save();
-        $this->alert('success', 'Berhasil Menambahkan Menu');
-        $this->reset();
+        $this->reset('idmenu','name','havesubmenu');
+        $this->alert('success','Menu berhasil ditambahkan');
     }
 }

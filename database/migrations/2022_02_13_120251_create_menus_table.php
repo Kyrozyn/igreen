@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('name');
             $table->foreignIdFor(\App\Models\FrontMenu::class);
             $table->unsignedBigInteger('parent_menu')->nullable();
-            $table->enum('schedule', ['daily', 'weekly', 'monthly', 'yearly'])->nullable();
             $table->boolean('have_submenu')->default(true);
             $table->timestamps();
         });

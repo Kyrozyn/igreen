@@ -30,8 +30,11 @@ Route::post('/postLaporan',[\App\Http\Controllers\Api::class,'postLaporan']);
 
 
 Route::get('/dashboard',[\App\Http\Controllers\Dashboard::class,'dashboard']);
-Route::get('/dashboard/menu/add',\App\Http\Livewire\FormMenu::class);
-Route::get('/dashboard/menu/',\App\Http\Livewire\TableMenu::class);
+Route::get('/dashboard/menu/add/{origin}/{frontmenu_id}/{id}',\App\Http\Livewire\FormMenu::class);
+Route::get('/dashboard/menu/{origin}/{id}',\App\Http\Livewire\TableMenu::class);
 
 Route::get('/dashboard/laporan/add',\App\Http\Livewire\Laporan\Form::class);
 Route::get('/dashboard/laporan/',\App\Http\Livewire\Laporan\Table::class);
+
+Route::get('/dashboard/frontmenu/',\App\Http\Livewire\FrontMenu\Table::class);
+Route::get('/dashboard/frontmenu/add',\App\Http\Livewire\FrontMenu\Form::class);

@@ -149,28 +149,15 @@ MAIN CONTENT LAYOUT
                     </li>
                     <li class="nav-main-heading">Menu</li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{url('/dashboard/menu/add')}}">
+                        <a class="nav-main-link" href="{{url('/dashboard/frontmenu/add')}}">
                             <i class="nav-main-link-icon fa fa-plus"></i>
                             <span class="nav-main-link-name">Tambah Menu</span>
                         </a>
                     </li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{url('/dashboard/menu   ')}}">
+                        <a class="nav-main-link" href="{{url('/dashboard/frontmenu')}}">
                             <i class="nav-main-link-icon fa fa-book"></i>
                             <span class="nav-main-link-name">List Menu</span>
-                        </a>
-                    </li>
-                    <li class="nav-main-heading">Laporan</li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{url('/dashboard/laporan/add')}}">
-                            <i class="nav-main-link-icon fa fa-plus"></i>
-                            <span class="nav-main-link-name">Tambah Laporan</span>
-                        </a>
-                    </li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{url('/dashboard/laporan')}}">
-                            <i class="nav-main-link-icon fa fa-book"></i>
-                            <span class="nav-main-link-name">List Laporan</span>
                         </a>
                     </li>
                 </ul>

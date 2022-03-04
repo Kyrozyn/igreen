@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('icon_url')->nullable();
+            $table->unsignedBigInteger('roles_id')->nullable();
             $table->timestamps();
         });
     }
