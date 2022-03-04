@@ -3,12 +3,13 @@
 namespace App\Http\Livewire\FrontMenu;
 
 use App\Models\FrontMenu;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class Form extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, LivewireAlert;
     public $name,$logo;
 
     public function render()
@@ -23,5 +24,7 @@ class Form extends Component
         $frontmenu->addMedia($this->logo)->toMediaCollection('logo');
         $frontmenu->icon_url = $frontmenu->getFirstMediaUrl('logo');
         $frontmenu->save();
+        $this->flash('success','Data Berhasil Disimpan');
+        $this->redirect('/dashboard/frontmenu');
     }
 }
