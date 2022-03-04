@@ -48,53 +48,55 @@
                 </div>
             </div>
             <div class="block-content">
-                <table class="table table-bordered table-vcenter">
-                    <thead>
-                    <tr>
-                        <th class="text-center" style="width: 100px;">ID Menu</th>
-                        <th>Nama Menu</th>
-                        <th>Mempunyai Submenu?</th>
-                        <th class="d-none d-sm-table-cell" style="width: 30%;">Ditambahkan Tanggal</th>
-                        <th class="text-center" style="width: 100px;">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($menus as $menu)
-                    <tr>
-                        <th class="text-center" scope="row">{{$menu->id_menu}}</th>
-                        <td class="font-w600">
-                            <a href="#">{{$menu->name}}</a>
-                        </td>
-                        <td class="">
-                            @if($menu->have_submenu == 1)
-                                <span class="badge badge-success">Ya</span>
-                            @else
-                                <span class="badge badge-danger">Tidak</span>
-                            @endif
-                        </td>
-                        <td class="d-none d-sm-table-cell">
-                            <span class="badge badge-warning">{{$menu->created_at  }}</span>
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                @if($menu->have_submenu == 1)
-                                <a href="{{url('/dashboard/menu/menu/'.$menu->id)}}" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Edit">
-                                    Lihat Submenu
-                                </a>
-                                @elseif($menu->have_submenu == 0)
-                                    <a href="{{url('/dashboard/laporan/'.$menu->id)}}" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Edit">
-                                        Lihat Laporan
-                                    </a>
-                                @endif
-                                <button type="button" class="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title="" data-original-title="Delete" wire:click="delete({{$menu->id}})">
-                                    Hapus
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-vcenter">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 100px;">ID Menu</th>
+                            <th>Nama Menu</th>
+                            <th>Mempunyai Submenu?</th>
+                            <th class="d-none d-sm-table-cell" style="width: 30%;">Ditambahkan Tanggal</th>
+                            <th class="text-center" style="width: 100px;">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($menus as $menu)
+                            <tr>
+                                <th class="text-center" scope="row">{{$menu->id_menu}}</th>
+                                <td class="font-w600">
+                                    <a href="#">{{$menu->name}}</a>
+                                </td>
+                                <td class="">
+                                    @if($menu->have_submenu == 1)
+                                        <span class="badge badge-success">Ya</span>
+                                    @else
+                                        <span class="badge badge-danger">Tidak</span>
+                                    @endif
+                                </td>
+                                <td class="d-none d-sm-table-cell">
+                                    <span class="badge badge-warning">{{$menu->created_at  }}</span>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        @if($menu->have_submenu == 1)
+                                            <a href="{{url('/dashboard/menu/menu/'.$menu->id)}}" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Edit">
+                                                Lihat Submenu
+                                            </a>
+                                        @elseif($menu->have_submenu == 0)
+                                            <a href="{{url('/dashboard/laporan/'.$menu->id)}}" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Edit">
+                                                Lihat Laporan
+                                            </a>
+                                        @endif
+                                        <button type="button" class="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title="" data-original-title="Delete" wire:click="delete({{$menu->id}})">
+                                            Hapus
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- END Your Block -->

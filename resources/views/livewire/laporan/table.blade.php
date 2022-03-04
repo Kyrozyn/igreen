@@ -48,6 +48,7 @@
                 </div>
             </div>
             <div class="block-content">
+                <div class="table-responsive">
                 <table class="table table-bordered table-vcenter">
                     <thead>
                     <tr>
@@ -81,6 +82,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
         <!-- END Your Block -->
