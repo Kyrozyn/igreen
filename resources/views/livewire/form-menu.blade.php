@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-xl-12">
                         <div class="form-group">
-                            <a href="{{url()->previous()}}" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit" type="submit">Kembali</a>
+                            <button onclick="history.back()"class="btn btn-alt-info" id="btnsubmit" name="btnsubmit">Kembali</button>
 
                             <button class="btn btn-primary" id="btnsubmit" name="btnsubmit" wire:click="submitdata">Submit
                             </button>

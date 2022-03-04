@@ -31,7 +31,7 @@
             </div>
             <div class="block-content">
                 <div class="form-group">
-                    <a href="{{url()->previous()}}" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit" type="submit">Kembali</a>
+                    <button onclick="history.back()" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit">Kembali</button>
                     <a href="{{url('/dashboard/menu/add/'.$origin.'/'.$frontmenuid.'/'.$idorigin)}}" class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit">Tambah Menu</a>
                 </div>
             </div>
