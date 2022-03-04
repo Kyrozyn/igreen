@@ -20,56 +20,57 @@
     <!-- Page Content -->
     <div class="content">
         <!-- Your Block -->
-        <form wire:submit.prevent="submit">
-            <div class="col-lg-8 col-xl-8">
-                <div class="form-group">
-                    <label for="example-select">Pilih Menu</label>
-                    <select class="form-control" id="example-select" name="example-select" wire:model="parentmenu">
-                        <option value="">Pilih Parent</option>
-                        @foreach($menus as $menu)
-                        <option value="{{ $menu->id }}">{{$menu->id_menu}} {{ $menu->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('parentmenu') <div id="error" style="color: red">{{$message}}</div> @enderror
-                </div>
-                <div class="form-group">
-                    <label for="idlaporan">ID Laporan</label>
-                    <input type="text" class="form-control" id="idlaporan" name="idlaporan" placeholder="ID Laporan" wire:model="idlaporan">
-                    @error('idlaporan') <div id="error" style="color: red">{{$message}}</div> @enderror
-                </div>
-                <div class="form-group">
-                    <label for="namalaporan">Nama Laporan</label>
-                    <input type="text" class="form-control" id="namalaporan" name="namalaporan" placeholder="Nama Laporan" wire:model="namalaporan">
-                    @error('namalaporan') <div id="error" style="color: red">{{$message}}</div> @enderror
-                </div>
-                <div class="form-group">
-                    <label class="d-block">Jenis Laporan</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="jenislaporan1" name="jenislaporan" value="image" checked="" wire:model="jenislaporan">
-                        <label class="form-check-label" for="jenislaporan1">Gambar</label>
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">Detail Laporan</h3>
+                <div class="block-options">
+                    <div class="block-options-item">
+                        <code></code>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="jenislaporan2" name="jenislaporan" value="video" wire:model="jenislaporan">
-                        <label class="form-check-label" for="jenislaporan2">Video</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="jenislaporan3" name="jenislaporan" value="imagevideo" wire:model="jenislaporan">
-                        <label class="form-check-label" for="jenislaporan3">Gambar&Video</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="jenislaporan4" name="jenislaporan" value="text" wire:model="jenislaporan">
-                        <label class="form-check-label" for="jenislaporan4">Teks</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="jenislaporan5" name="jenislaporan" value="option" wire:model="jenislaporan">
-                        <label class="form-check-label" for="jenislaporan5">Opsi Ya/Tidak</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit" >Submit</button>
                 </div>
             </div>
-        </form>
+            <div class="block-content">
+                <form wire:submit.prevent="submit">
+                    <div class="col-lg-8 col-xl-8">
+                        <div class="form-group">
+                            <label for="namalaporan">Nama Laporan</label>
+                            <input type="text" class="form-control" id="namalaporan" name="namalaporan" placeholder="Nama Laporan" wire:model="name">
+                            @error('namalaporan') <div id="error" style="color: red">{{$message}}</div> @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="d-block">Jenis Laporan</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="jenislaporan1" name="jenislaporan" value="image" checked="" wire:model="jenislaporan">
+                                <label class="form-check-label" for="jenislaporan1">Gambar</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="jenislaporan2" name="jenislaporan" value="video" wire:model="jenislaporan">
+                                <label class="form-check-label" for="jenislaporan2">Video</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="jenislaporan3" name="jenislaporan" value="imagevideo" wire:model="jenislaporan">
+                                <label class="form-check-label" for="jenislaporan3">Gambar&Video</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="jenislaporan4" name="jenislaporan" value="text" wire:model="jenislaporan">
+                                <label class="form-check-label" for="jenislaporan4">Teks</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="jenislaporan5" name="jenislaporan" value="option" wire:model="jenislaporan">
+                                <label class="form-check-label" for="jenislaporan5">Opsi Ya/Tidak</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button onclick="history.back()" type="button" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit">Kembali</button>
+                            <button class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit" value="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- END Your Block -->
+        <!-- Your Block -->
+
         <!-- END Your Block -->
     </div>
     <!-- END Page Content -->
