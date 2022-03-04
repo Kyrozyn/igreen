@@ -3,10 +3,13 @@
 namespace App\Http\Livewire\FrontMenu;
 
 use App\Models\FrontMenu;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class Table extends Component
 {
+    use LivewireAlert;
+
     public function render()
     {
         $frontmenus = FrontMenu::all();
