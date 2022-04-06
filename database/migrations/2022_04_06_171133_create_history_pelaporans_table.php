@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('laporan_users', function (Blueprint $table) {
+        Schema::create('history_pelaporans', function (Blueprint $table) {
             $table->id();
+            $table->enum("Status",["Dibuka","Ditutup","Perlu Perbaikan"]);
             $table->foreignIdFor(\App\Models\Pelaporan::class);
             $table->foreignIdFor(\App\Models\User::class);
-            $table->text('content')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laporan_users');
+        Schema::dropIfExists('history_pelaporans');
     }
 };

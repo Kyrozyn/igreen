@@ -160,6 +160,19 @@ MAIN CONTENT LAYOUT
                             <span class="nav-main-link-name">List Menu</span>
                         </a>
                     </li>
+                    <li class="nav-main-heading">File Peraturan</li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{url('/dashboard/fileperaturan/add')}}">
+                            <i class="nav-main-link-icon fa fa-plus"></i>
+                            <span class="nav-main-link-name">Tambah File Peraturan</span>
+                        </a>
+                    </li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{url('/dashboard/fileperaturan')}}">
+                            <i class="nav-main-link-icon fa fa-book"></i>
+                            <span class="nav-main-link-name">List File Peraturan</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- END Side Navigation -->

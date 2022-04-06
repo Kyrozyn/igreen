@@ -51,8 +51,7 @@ class Api extends Controller
         return response()->json(['status' => 200, 'message' => 'Success', 'data' => $laporan, 200]);
     }
 
-    public function postLaporan(Request $request){
-        $id = $request->post('laporan_id');
+    public function laporanaction(Request $request, $id){
         try {
             $laporan = \App\Models\Laporan::whereId($id)->first();
             if($laporan){
@@ -68,7 +67,7 @@ class Api extends Controller
                     $laporanuser->content = $request->post('content');
                     $laporanuser->save();
                 }
-                return response()->json(['status' => 200, 'message' => 'Success', 'laporan' => $laporan,'submitted_laporan' => $laporanuser, 200]);
+                return response()->json(['status' => 200, 'message' => 'Success', 'laporan' => $laporan,'submitted_laporan' => $laporanuser],200);
             }
             else{
                 return response(['status' => 404, 'message' => 'Laporan not found'],404);
@@ -77,7 +76,14 @@ class Api extends Controller
         catch (\Exception $e) {
             return response(['status' => 500, 'message' => 'Internal Server Error', 'error' => $e->getMessage()],500);
         }
+    }
 
+    public function postLaporan(Request $request){
+        $id = $request->post('laporan_id');
+        $this->laporanaction($request,$id);
+    }
+
+    public function LaporanBatch(Request $request){
 
     }
 }

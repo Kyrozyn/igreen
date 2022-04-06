@@ -7,15 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class LaporanUser extends Model implements HasMedia
+class FilePeraturan extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
-
-    public function user(){
-        return $this->belongsTo('App\Models\User');
-    }
-
-    public function pelaporan(){
-        return $this->belongsTo(Pelaporan::class);
-    }
 }

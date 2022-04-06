@@ -1,29 +1,23 @@
 <?php
 
-namespace App\Http\Livewire\Laporan;
+namespace App\Http\Livewire\FilePeraturan;
 
-use App\Models\Laporan;
+use App\Models\FilePeraturan;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class Table extends Component
 {
     use LivewireAlert;
-    public $menu_id;
     public $delete_id;
     protected $listeners = [
         'deleteaction'
     ];
 
-    public function mount($menu_id)
-    {
-        $this->menu_id = $menu_id;
-    }
-
     public function render()
     {
-        $laporans = Laporan::whereMenuId($this->menu_id)->get();
-        return view('livewire.laporan.table',compact('laporans'));
+        $fileperaturan = FilePeraturan::all();
+        return view('livewire.file-peraturan.table',compact("fileperaturan"));
     }
 
     public function delete($id){
@@ -41,9 +35,9 @@ class Table extends Component
     }
 
     public function deleteaction(){
-        $laporan = Laporan::find($this->delete_id);
-        $laporan->delete();
-        $this->alert('success', 'Laporan berhasil dihapus');
+        $fileperaturan = FilePeraturan::find($this->delete_id);
+        $fileperaturan->delete();
+        $this->alert('success', 'File Peraturan berhasil dihapus');
         $this->delete_id = "";
         $this->alert('success', 'Data berhasil dihapus!', [
             'position' => 'center',

@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('laporan_users', function (Blueprint $table) {
+        Schema::create('file_peraturans', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Pelaporan::class);
-            $table->foreignIdFor(\App\Models\User::class);
-            $table->text('content')->nullable();
+            $table->text('nama_file');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laporan_users');
+        Schema::dropIfExists('file_peraturans');
     }
 };
