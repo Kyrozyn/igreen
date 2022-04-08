@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum("Status",["Dibuka","Ditutup","Perlu Perbaikan"]);
             $table->foreignIdFor(\App\Models\Pelaporan::class);
             $table->foreignIdFor(\App\Models\User::class);
+            $table->text("Keterangan");
             $table->timestamps();
         });
     }

@@ -13,4 +13,8 @@ class Pelaporan extends Model
     {
         $this->hasMany(HistoryPelaporan::class);
     }
+
+    public function laporanuser(){
+        $this->hasMany(LaporanUser::class);
+    }
 }
