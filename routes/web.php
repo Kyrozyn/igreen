@@ -17,14 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/login',[\App\Http\Controllers\Api::class,'checkAccount']);
-
-Route::get('/getfrontmenu',[\App\Http\Controllers\Api::class,'getFrontMenu']);
-Route::post('/getmenu',[\App\Http\Controllers\Api::class,'getMenu']);
-Route::post('/getchildmenu',[\App\Http\Controllers\Api::class,'getChildMenu']);
-Route::post('/getlaporanmenu',[\App\Http\Controllers\Api::class,'getLaporanMenu']);
-Route::post('/postLaporan',[\App\Http\Controllers\Api::class,'postLaporan']);
-
 
 include __DIR__.'/auth.php';
 
