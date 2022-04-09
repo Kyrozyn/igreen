@@ -59,7 +59,6 @@ class Api extends Controller
 
     public function createPelaporan(Request $request)
     {
-        DB::beginTransaction();
         try {
             $user_id = $request->post('user_id');
             $pelaporan = new Pelaporan();
@@ -69,7 +68,6 @@ class Api extends Controller
                 "pelaporan_id" => Pelaporan::latest()->first()->id,
             ], 200]);
         } catch (\Exception $e) {
-            DB::rollback();
             return response()->json(['status' => 500, 'message' => 'Failed', 'data' => [
                 "error" => $e->getMessage(),
             ], 500]);
