@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('laporan_users', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\Laporan::class);
             $table->foreignIdFor(\App\Models\Pelaporan::class);
-            $table->foreignIdFor(\App\Models\User::class);
             $table->text('content')->nullable();
             $table->timestamps();
         });
