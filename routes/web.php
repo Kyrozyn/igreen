@@ -35,17 +35,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/fileperaturan/add',\App\Http\Livewire\FilePeraturan\Form::class);
 });
 
-
+//api
 Route::post('/login',[\App\Http\Controllers\Api::class,'checkAccount']);
-
 Route::get('/getfrontmenu',[\App\Http\Controllers\Api::class,'getFrontMenu']);
 Route::post('/getmenu',[\App\Http\Controllers\Api::class,'getMenu']);
 Route::post('/getchildmenu',[\App\Http\Controllers\Api::class,'getChildMenu']);
 Route::post('/getlaporanmenu',[\App\Http\Controllers\Api::class,'getLaporanMenu']);
-
 Route::post('/postLaporan',[\App\Http\Controllers\Api::class,'postLaporan']);
-
 Route::post('/createPelaporan',[\App\Http\Controllers\Api::class,'createPelaporan']);
 Route::post('/laporanBatch',[\App\Http\Controllers\Api::class,'laporanBatch']);
-
 Route::post('/getLaporan',[\App\Http\Controllers\Api::class,'getLaporan']);
