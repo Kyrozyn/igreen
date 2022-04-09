@@ -83,7 +83,6 @@ class Api extends Controller
             if ($laporan) {
                 $laporanuser = new LaporanUser();
                 /// user, content
-                $laporanuser->user_id = $request->post('user_id');
                 $laporanuser->pelaporan_id = $request->post('pelaporan_id');
                 if ($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo') {
                     $laporanuser->save();
@@ -106,7 +105,7 @@ class Api extends Controller
     public function postLaporan(Request $request)
     {
         $id = $request->post('laporan_id');
-        $this->laporanaction($request, $id);
+        return $this->laporanaction($request, $id);
     }
 
     public function laporanBatch(Request $request)
