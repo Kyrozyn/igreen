@@ -115,7 +115,7 @@ class Api extends Controller
         $pelaporan_id = $request->post('pelaporan_id');
         try{
             $data = json_decode($json);
-            foreach ($data["data"] as $key => $value) {
+            foreach ($data as $key => $value) {
                 $laporan = \App\Models\Laporan::whereId($value["laporan_id"])->first();
                 if ($laporan) {
                     $laporanuser = new LaporanUser();
