@@ -133,14 +133,14 @@ class Api extends Controller
     public function postLaporanFile(Request $request)
     {
         try {
-                $laporanuser = Pelaporan::whereId('pelaporan_id')->first();
+                $laporanuser = Pelaporan::whereId($request->post('pelaporan_id'))->first();
                     $file = $request->file('file');
                     $laporanuser->addMedia($file)->toMediaCollection('file-' . Carbon::now()->format('Ymd'));
                     $laporanuser->save();
-            return response()->json(['message' => 'Success', 'laporan' => $laporanuser, 'submitted_laporan' => $laporanuser], 200);
+                return response()->json(['message' => 'Success', 'laporan' => $laporanuser, 'submitted_laporan' => $laporanuser], 200);
             }
             catch (\Exception $e) {
-            return response(['message' => 'Internal Server Error', 'error' => $e->getMessage()], 500);
+                return response(['message' => 'Internal Server Error', 'error' => $e->getMessage()], 500);
         }
     }
 
