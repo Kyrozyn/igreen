@@ -116,15 +116,12 @@ class Api extends Controller
         try{
             $data = json_decode($json);
             foreach ($data as $key => $value) {
-                $laporan = \App\Models\Laporan::whereId($key)->first();
-                if ($laporan) {
                     $laporanuser = new LaporanUser();
                     /// user, content
                     $laporanuser->laporan_id = $laporan->id;
                     $laporanuser->pelaporan_id = $pelaporan_id;
                         $laporanuser->content = $value;
                         $laporanuser->save();
-                }
             }
             return response()->json(['message' => 'Success', 'data' => $data], 200);
         }
