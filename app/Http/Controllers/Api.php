@@ -67,6 +67,9 @@ class Api extends Controller
                 $pelaporan->tanggal_penyelesaian_awal = $request->post('tanggal_penyelesaian_awal');
                 $pelaporan->tanggal_penyelesaian_akhir = $request->post('tanggal_penyelesaian_akhir');
             }
+            if($request->exists('catatan')){
+                $pelaporan->catatan = $request->post('catatan');
+            }
             $pelaporan->save();
             return response()->json(['status' => 200, 'message' => 'Success', 'data' => [
                 "pelaporan_id" => Pelaporan::latest()->first()->id,
