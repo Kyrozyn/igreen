@@ -12,7 +12,7 @@ class Form extends Component
     use LivewireAlert;
 
     public $menu_id;
-    public $name,$jenislaporan="image";
+    public $name,$satuan,$jenislaporan="image";
 
     public function mount($menu_id)
     {
@@ -28,6 +28,7 @@ class Form extends Component
         $laporan = new Laporan();
         $laporan->menu_id = $this->menu_id;
         $laporan->name = $this->name;
+        $laporan->satuan = $this->satuan;
         $laporan->type = $this->jenislaporan;
         $laporan->save();
         $this->flash('success','Berhasil menambahkan laporan');

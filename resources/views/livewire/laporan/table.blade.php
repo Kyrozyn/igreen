@@ -53,6 +53,7 @@
                     <thead>
                     <tr>
                         <th>Nama Laporan</th>
+                        <th>Satuan</th>
                         <th>Jenis Laporan</th>
                         <th class="d-none d-sm-table-cell" style="width: 30%;">Ditambahkan Tanggal</th>
                         <th class="text-center" style="width: 100px;">Actions</th>
@@ -64,6 +65,7 @@
                             <td class="font-w600">
                                 <a href="#">{{$laporan->name}}</a>
                             </td>
+                            <th scope="row">{{$laporan->satuan ?? ""}}</th>
                             <th scope="row">{{$laporan->type}}</th>
                             <td class="d-none d-sm-table-cell">
                                 <span class="badge badge-warning">{{$laporan->created_at}}</span>

@@ -38,6 +38,11 @@
                             @error('namalaporan') <div id="error" style="color: red">{{$message}}</div> @enderror
                         </div>
                         <div class="form-group">
+                            <label for="namalaporan">Satuan</label>
+                            <input type="text" class="form-control" id="namalaporan" name="namalaporan" placeholder="Nama Laporan" wire:model="satuan">
+                            @error('namalaporan') <div id="error" style="color: red">{{$message}}</div> @enderror
+                        </div>
+                        <div class="form-group">
                             <label class="d-block">Jenis Laporan</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" id="jenislaporan1" name="jenislaporan" value="file" checked="" wire:model="jenislaporan">
