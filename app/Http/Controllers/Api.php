@@ -118,7 +118,7 @@ class Api extends Controller
             foreach ($data as $key => $value) {
                     $laporanuser = new LaporanUser();
                     /// user, content
-                    $laporanuser->laporan_id = $laporan->id;
+                    $laporanuser->laporan_id = $key;
                     $laporanuser->pelaporan_id = $pelaporan_id;
                         $laporanuser->content = $value;
                         $laporanuser->save();
