@@ -130,6 +130,21 @@ class Api extends Controller
         }
     }
 
+    public function laporanactionFile(Request $request, $id)
+    {
+        try {
+                $laporanuser = new LaporanUser();
+                $laporanuser->pelaporan_id = $request->post('pelaporan_id');
+                    $laporanuser->save();
+                    $file = $request->file('file');
+                    $laporanuser->addMedia($file)->toMediaCollection('file-' . Carbon::now()->format('Ymd'));
+                return response()->json(['message' => 'Success', 'laporan' => $laporanuser, 'submitted_laporan' => $laporanuser], 200);
+            }
+            catch (\Exception $e) {
+            return response(['message' => 'Internal Server Error', 'error' => $e->getMessage()], 500);
+        }
+    }
+
     public function getPelaporan(Request $request){
         $pelaporan_id = $request->post('pelaporan_id');
         $laporan = \App\Models\Pelaporan::whereId($pelaporan_id)->first();
