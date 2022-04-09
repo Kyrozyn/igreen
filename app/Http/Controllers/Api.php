@@ -133,7 +133,7 @@ class Api extends Controller
     public function postLaporanFile(Request $request)
     {
         try {
-                $laporanuser = Pelaporan::whereId('pelaporan_id');
+                $laporanuser = Pelaporan::whereId('pelaporan_id')->first();
                     $file = $request->file('file');
                     $laporanuser->addMedia($file)->toMediaCollection('file-' . Carbon::now()->format('Ymd'));
                     $laporanuser->save();
