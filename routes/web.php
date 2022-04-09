@@ -43,5 +43,5 @@ Route::post('/getchildmenu',[\App\Http\Controllers\Api::class,'getChildMenu']);
 Route::post('/getlaporanmenu',[\App\Http\Controllers\Api::class,'getLaporanMenu']);
 Route::post('/postLaporan',[\App\Http\Controllers\Api::class,'postLaporan']);
 Route::post('/createPelaporan',[\App\Http\Controllers\Api::class,'createPelaporan']);
-Route::post('/laporanBatch',[\App\Http\Controllers\Api::class,'laporanBatch']);
+Route::post('/postLaporanBatch',[\App\Http\Controllers\Api::class,'laporanBatch']);
 Route::post('/getLaporan',[\App\Http\Controllers\Api::class,'getLaporan']);
