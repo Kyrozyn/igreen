@@ -83,6 +83,7 @@ class Api extends Controller
             if ($laporan) {
                 $laporanuser = new LaporanUser();
                 /// user, content
+                $laporanuser->laporan_id = $id;
                 $laporanuser->pelaporan_id = $request->post('pelaporan_id');
                 if ($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo') {
                     $laporanuser->save();
