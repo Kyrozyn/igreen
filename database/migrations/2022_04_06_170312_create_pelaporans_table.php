@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->enum("status",["Diajukan","Menunggu Konfirmasi","Revisi","Selesai"])->default("Diajukan");
             $table->enum("status_detail",["Sedang direview oleh Manager","Sedang direview oleh KTT", "[Manager] Perlu Perbaikan", "[KTT] Perlu Perbaikan", "Selesai"])->nullable();
+            $table->date("tanggal_penyelesaian_awal")->nullable();
+            $table->date("tanggal_penyelesaian_akhir")->nullable();
             $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
