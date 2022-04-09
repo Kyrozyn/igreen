@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('pelaporans', function (Blueprint $table) {
             $table->id();
-            $table->enum("Status",["Dibuka","Ditutup","Perlu Perbaikan"]);
+            $table->enum("status",["Dibuka","Ditutup","Perlu Perbaikan"]);
             $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
