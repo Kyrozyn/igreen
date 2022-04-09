@@ -130,7 +130,7 @@ class Api extends Controller
         }
     }
 
-    public function laporanactionFile(Request $request, $id)
+    public function postLaporanFile(Request $request, $id)
     {
         try {
                 $laporanuser = new LaporanUser();
