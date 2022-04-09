@@ -116,20 +116,14 @@ class Api extends Controller
         try{
             $data = json_encode($json);
             foreach ($data as $key => $value) {
-                $laporan = \App\Models\Laporan::whereId($value["laporan_id"])->first();
+                $laporan = \App\Models\Laporan::whereId($value[0])->first();
                 if ($laporan) {
                     $laporanuser = new LaporanUser();
                     /// user, content
                     $laporanuser->laporan_id = $laporan->id;
                     $laporanuser->pelaporan_id = $pelaporan_id;
-                    if ($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo' or $laporan->type == 'file') {
+                        $laporanuser->content = $value[1];
                         $laporanuser->save();
-                        $file = $value["file"];
-                        $laporanuser->addMedia($file)->toMediaCollection('file-' . Carbon::now()->format('Ymd'));
-                    } else {
-                        $laporanuser->content = $value["content"];
-                        $laporanuser->save();
-                    }
                 }
             }
             return response()->json(['message' => 'Success', 'data' => $data], 200);
