@@ -40,16 +40,8 @@
                         <div class="form-group">
                             <label class="d-block">Jenis Laporan</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="jenislaporan1" name="jenislaporan" value="image" checked="" wire:model="jenislaporan">
-                                <label class="form-check-label" for="jenislaporan1">Gambar</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="jenislaporan2" name="jenislaporan" value="video" wire:model="jenislaporan">
-                                <label class="form-check-label" for="jenislaporan2">Video</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="jenislaporan3" name="jenislaporan" value="imagevideo" wire:model="jenislaporan">
-                                <label class="form-check-label" for="jenislaporan3">Gambar&Video</label>
+                                <input class="form-check-input" type="radio" id="jenislaporan1" name="jenislaporan" value="file" checked="" wire:model="jenislaporan">
+                                <label class="form-check-label" for="jenislaporan1">File</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" id="jenislaporan4" name="jenislaporan" value="text" wire:model="jenislaporan">

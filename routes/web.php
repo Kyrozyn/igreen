@@ -22,8 +22,8 @@ include __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard',[\App\Http\Controllers\Dashboard::class,'dashboard'])->name("dashboard");
-//Route::get('/dashboard/menu/add/{origin}/{frontmenu_id}/{id}',\App\Http\Livewire\FormMenu::class);
-//Route::get('/dashboard/menu/{origin}/{id}',\App\Http\Livewire\TableMenu::class);
+Route::get('/dashboard/menu/add/{origin}/{frontmenu_id}/{id}',\App\Http\Livewire\FormMenu::class);
+Route::get('/dashboard/menu/{origin}/{id}',\App\Http\Livewire\TableMenu::class);
 
     Route::get('/dashboard/laporan/add/{menu_id}',\App\Http\Livewire\Laporan\Form::class);
     Route::get('/dashboard/laporan/{menu_id}',\App\Http\Livewire\Laporan\Table::class);

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\Menu::class)->nullable();
             $table->string('name');
-            $table->enum('type',['image','video','imagevideo','text','option'])->nullable();
+            $table->enum('type',['image','video','imagevideo','text','option','file'])->nullable();
             $table->timestamps();
         });
     }

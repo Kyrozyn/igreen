@@ -122,7 +122,7 @@ class Api extends Controller
                     /// user, content
                     $laporanuser->laporan_id = $laporan->id;
                     $laporanuser->pelaporan_id = $pelaporan_id;
-                    if ($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo') {
+                    if ($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo' or $laporan->type == 'file') {
                         $laporanuser->save();
                         $file = $value["file"];
                         $laporanuser->addMedia($file)->toMediaCollection('file-' . Carbon::now()->format('Ymd'));
