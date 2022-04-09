@@ -112,7 +112,6 @@ class Api extends Controller
     public function laporanBatch(Request $request)
     {
         $json = $request->post('data');
-        $laporan_id = $request->post('laporan_id');
         $pelaporan_id = $request->post('pelaporan_id');
         try{
             $data = json_decode($json);
@@ -121,7 +120,7 @@ class Api extends Controller
                 if ($laporan) {
                     $laporanuser = new LaporanUser();
                     /// user, content
-                    $laporanuser->laporan_id = $laporan_id;
+                    $laporanuser->laporan_id = $laporan->id;
                     $laporanuser->pelaporan_id = $pelaporan_id;
                     if ($laporan->type == 'image' or $laporan->type == 'video' or $laporan->type == 'imagevideo') {
                         $laporanuser->save();
@@ -140,9 +139,9 @@ class Api extends Controller
         }
     }
 
-    public function getLaporan(Request $request){
-        $laporan_id = $request->post('laporan_id');
-        $laporan = \App\Models\Laporan::whereId($laporan_id)->first();
+    public function getPelaporan(Request $request){
+        $pelaporan_id = $request->post('pelaporan_id');
+        $laporan = \App\Models\Pelaporan::whereId($pelaporan_id)->first();
         if ($laporan) {
             return response()->json(['message' => 'Success', 'laporan' => $laporan], 200);
         } else {
