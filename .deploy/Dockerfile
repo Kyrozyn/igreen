@@ -92,3 +92,4 @@ EXPOSE 80
 COPY ./.deploy/entrypoint.sh /
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]
+
