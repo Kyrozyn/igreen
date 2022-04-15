@@ -48,4 +48,5 @@ Route::post('/createPelaporan',[\App\Http\Controllers\Api::class,'createPelapora
 Route::post('/postLaporanBatch',[\App\Http\Controllers\Api::class,'laporanBatch']);
 Route::post('/getLaporan',[\App\Http\Controllers\Api::class,'getLaporan']);
 Route::post('/statistic/dashboard',[\App\Http\Controllers\Api::class,'getCount']);
-Route::get('/fileperaturan',[\App\Http\Controllers\Api::class,'getfi']);
+Route::post('/fileperaturan',[\App\Http\Controllers\Api::class,'getFilePeraturan']);
+Route::get('/jenisfileperaturan',[\App\Http\Controllers\Api::class,'getjenisfileperaturan']);
