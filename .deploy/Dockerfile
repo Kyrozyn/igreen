@@ -91,5 +91,5 @@ ARG PUSHER_APP_CLUSTER=${PUSHER_APP_CLUSTER}
 EXPOSE 80
 COPY ./.deploy/entrypoint.sh /
 
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+ENTRYPOINT ["sh",  "/entrypoint.sh"]
 
