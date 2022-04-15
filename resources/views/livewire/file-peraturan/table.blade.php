@@ -36,6 +36,7 @@
                         <tr>
                             <th class="text-center" style="width: 100px;">ID</th>
                             <th>Nama File</th>
+                            <th>Jenis</th>
                             <th>URL</th>
                             <th class="d-none d-sm-table-cell" style="width: 30%;">Ditambahkan Tanggal</th>
                             <th class="text-center" style="width: 100px;">Actions</th>
@@ -46,6 +47,7 @@
                             <tr>
                                 <th class="text-center" scope="row">{{$file->id}}</th>
                                 <th class="text-center" scope="row">{{$file->nama_file}}</th>
+                                <th class="text-center" scope="row">{{$file->jenis->nama ?? ""}}</th>
                                 <th class="text-center" scope="row">{{$file->getfirstmediaurl('file')}}</th>
                                 <td class="d-none d-sm-table-cell">
                                     <span class="badge badge-warning">{{$file->created_at}}</span>

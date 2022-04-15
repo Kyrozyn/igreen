@@ -32,6 +32,7 @@ Route::get('/dashboard/menu/{origin}/{id}',\App\Http\Livewire\TableMenu::class);
     Route::get('/dashboard/frontmenu/add',\App\Http\Livewire\FrontMenu\Form::class);
 
     Route::get('/dashboard/fileperaturan',\App\Http\Livewire\FilePeraturan\Table::class);
+    Route::get('/dashboard/fileperaturan/jenis',\App\Http\Livewire\FilePeraturan\Jenis::class);
     Route::get('/dashboard/fileperaturan/add',\App\Http\Livewire\FilePeraturan\Form::class);
 });
 
@@ -46,3 +47,5 @@ Route::post('/postLaporanFile',[\App\Http\Controllers\Api::class,'postLaporanFil
 Route::post('/createPelaporan',[\App\Http\Controllers\Api::class,'createPelaporan']);
 Route::post('/postLaporanBatch',[\App\Http\Controllers\Api::class,'laporanBatch']);
 Route::post('/getLaporan',[\App\Http\Controllers\Api::class,'getLaporan']);
+Route::post('/statistic/dashboard',[\App\Http\Controllers\Api::class,'getCount']);
+Route::get('/fileperaturan',[\App\Http\Controllers\Api::class,'getfi']);

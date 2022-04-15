@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('file_peraturans', function (Blueprint $table) {
+        Schema::create('jenis_file_peraturans', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\JenisFilePeraturan::class);
-            $table->text('nama_file');
-            $table->text('url')->nullable();
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_peraturans');
+        Schema::dropIfExists('jenis_file_peraturans');
     }
 };

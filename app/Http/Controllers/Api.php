@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FilePeraturan;
 use App\Models\FrontMenu;
+use App\Models\JenisFilePeraturan;
 use App\Models\LaporanUser;
 use App\Models\Menu;
 use App\Models\Pelaporan;
 use App\Models\User;
 use Carbon\PHPStan\AbstractMacro;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -158,4 +161,26 @@ class Api extends Controller
             return response(['message' => 'Laporan not found'], 404);
         }
     }
+
+    public function getCount(Request $request){
+        $user_id = $request->post('user_id');
+        $count_diajukan = Pelaporan::where('status', 'Diajukan')->where('user_id'.$user_id)->count();
+        $count_menunggu_konfirmasi = Pelaporan::where('status', 'Menunggu Konfirmasi')->where('user_id'.$user_id)->count();
+        $count_revisi = Pelaporan::where('status', 'Revisi')->where('user_id'.$user_id)->count();
+        $count_selesai = Pelaporan::where('status', 'Selesai')->where('user_id'.$user_id)->count();
+        return response()->json(['message' => 'Success', 'diajukan' => $count_diajukan,'menunggukonfirmasi' => $count_menunggu_konfirmasi,'revisi' => $count_revisi,'selesai' => $count_selesai], 200);
+    }
+
+    public function getjenisfileperaturan(){
+        $jenis_file = JenisFilePeraturan::all();
+        return response()->json(['message' => 'Success', 'jenis_file' => $jenis_file], 200);
+    }
+
+    public function getFilePeraturan(Request $request){
+        $jenis_id = $request->post('jenis_id');
+        $file_peraturan = FilePeraturan::where('jenis_file_peraturan_id', $jenis_id)->get();
+        return response()->json(['message' => 'Success', 'file_peraturan' => $file_peraturan], 200);
+    }
+
+
 }
