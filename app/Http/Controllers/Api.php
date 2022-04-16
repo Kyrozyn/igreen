@@ -164,7 +164,7 @@ class Api extends Controller
 
     public function getCount(Request $request){
         $user_id = $request->post('user_id');
-        $count_diajukan = Pelaporan::where('status', 'Diajukan')->where('user_id'.$user_id)->count();
+        $count_diajukan = Pelaporan::where('status', 'Diajukan')->where('user_id',$user_id)->count();
         $count_menunggu_konfirmasi = Pelaporan::where('status', 'Menunggu Konfirmasi')->where('user_id'.$user_id)->count();
         $count_revisi = Pelaporan::where('status', 'Revisi')->where('user_id'.$user_id)->count();
         $count_selesai = Pelaporan::where('status', 'Selesai')->where('user_id'.$user_id)->count();
