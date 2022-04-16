@@ -66,6 +66,7 @@ class Api extends Controller
             $user_id = $request->post('user_id');
             $pelaporan = new Pelaporan();
             $pelaporan->user_id = $user_id;
+            $pelaporan->status_detail = "Sedang direview oleh Manager";
             if($request->exists('tanggal_penyelesaian awal') and $request->exists('tanggal_penyelesaian_akhir')){
                 $pelaporan->tanggal_penyelesaian_awal = $request->post('tanggal_penyelesaian_awal');
                 $pelaporan->tanggal_penyelesaian_akhir = $request->post('tanggal_penyelesaian_akhir');
