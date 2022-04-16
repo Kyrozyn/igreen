@@ -84,7 +84,13 @@
                     <div class="block block-rounded">
                         <div class="block-header block-header-default">
                             <h3 class="block-title">
-                                {{$laporanuser->laporan->name}} : {{$laporanuser->content}}
+                                {{$laporanuser->laporan->name}} : @if($laporanuser->content == 'yes')
+                                    Ya
+                                @elseif($laporanuser->content == 'no')
+                                    Tidak
+                                @else
+                                    {{$laporanuser->content ?? ""}}
+                                @endif
                                 {{$laporanuser->getFirstMediaUrl('file') ? '<a href="'.$laporanuser->getFirstMediaUrl('file').'" target="_blank">Download File</a>' : ''}}
                             </h3>
 
