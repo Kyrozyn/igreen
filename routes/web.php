@@ -50,3 +50,7 @@ Route::post('/getLaporan',[\App\Http\Controllers\Api::class,'getLaporan']);
 Route::post('/statistic/dashboard',[\App\Http\Controllers\Api::class,'getCount']);
 Route::post('/fileperaturan',[\App\Http\Controllers\Api::class,'getFilePeraturan']);
 Route::get('/jenisfileperaturan',[\App\Http\Controllers\Api::class,'getjenisfileperaturan']);
+
+
+//mobile
+Route::get('/mobile/login',[\App\Http\Controllers\Mobile::class,'login']);
