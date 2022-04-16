@@ -144,8 +144,8 @@ class Api extends Controller
         try {
                 $laporanuser = Pelaporan::whereId($request->post('pelaporan_id'))->first();
                     $file = $request->file('file');
-                    $laporanuser->addMedia($file)->toMediaCollection('file-' . Carbon::now()->format('Ymd'));
-                    $laporanuser->save();
+            $laporanuser->addMedia($file)->toMediaCollection('file');
+            $laporanuser->save();
                 return response()->json(['message' => 'Success', 'laporan' => $laporanuser, 'submitted_laporan' => $laporanuser], 200);
             }
             catch (\Exception $e) {
