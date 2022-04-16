@@ -91,10 +91,12 @@
                                 @else
                                     {{$laporanuser->content ?? ""}}
                                 @endif
-                                <a href="{{$laporanuser->getFirstMediaUrl('file')}}" target="_blank">Download File</a>
                             </h3>
                         </div>
                     </div>
+                @endforeach
+                @foreach($detail->getMedia() as $key => $media)
+                    <a href="{{$media->getUrl()}}" target="_blank">Download File {{$key+1}}</a>
                 @endforeach
             </div>
         </div>
