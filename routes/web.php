@@ -44,13 +44,19 @@ Route::post('/getchildmenu',[\App\Http\Controllers\Api::class,'getChildMenu']);
 Route::post('/getlaporanmenu',[\App\Http\Controllers\Api::class,'getLaporanMenu']);
 Route::post('/postLaporan',[\App\Http\Controllers\Api::class,'postLaporan']);
 Route::post('/postLaporanFile',[\App\Http\Controllers\Api::class,'postLaporanFile']);
-Route::post('/createPelaporan',[\App\Http\Controllers\Api::class,'createPelaporan']);
-Route::post('/postLaporanBatch',[\App\Http\Controllers\Api::class,'laporanBatch']);
-Route::post('/getLaporan',[\App\Http\Controllers\Api::class,'getLaporan']);
-Route::post('/statistic/dashboard',[\App\Http\Controllers\Api::class,'getCount']);
-Route::post('/fileperaturan',[\App\Http\Controllers\Api::class,'getFilePeraturan']);
-Route::get('/jenisfileperaturan',[\App\Http\Controllers\Api::class,'getjenisfileperaturan']);
+Route::post('/createPelaporan', [\App\Http\Controllers\Api::class, 'createPelaporan']);
+Route::post('/postLaporanBatch', [\App\Http\Controllers\Api::class, 'laporanBatch']);
+Route::post('/getLaporan', [\App\Http\Controllers\Api::class, 'getLaporan']);
+Route::post('/statistic/dashboard', [\App\Http\Controllers\Api::class, 'getCount']);
+Route::post('/fileperaturan', [\App\Http\Controllers\Api::class, 'getFilePeraturan']);
+Route::get('/jenisfileperaturan', [\App\Http\Controllers\Api::class, 'getjenisfileperaturan']);
 
 
 //mobile
-Route::get('/mobile/login',[\App\Http\Controllers\Mobile::class,'login']);
+Route::get('/mobile/login', [\App\Http\Controllers\Mobile::class, 'login']);
+Route::get('/mobile/dashboard', [\App\Http\Controllers\Mobile::class, 'dashboard']);
+Route::get('/mobile/list/diajukan', [\App\Http\Controllers\Mobile::class, 'list_diajukan']);
+Route::get('/mobile/list/menunggu_konfirmasi', [\App\Http\Controllers\Mobile::class, 'list_menunggu_konfirmasi']);
+Route::get('/mobile/list/revisi', [\App\Http\Controllers\Mobile::class, 'list_revisi']);
+Route::get('/mobile/list/selesai', [\App\Http\Controllers\Mobile::class, 'list_selesai']);
+Route::get('/pelaporan/detail/{id}', \App\Http\Livewire\Pelaporan\Detail::class);

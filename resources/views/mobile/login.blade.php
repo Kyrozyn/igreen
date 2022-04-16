@@ -71,7 +71,8 @@
                 ></div>
             </div>
             <div class="xzs-cover-block1-spacer"></div>
-            <h5 class="xzs-highlights layout1">Password</h5>
+            <input type="password" style="background: none; border: none" class="xzs-highlights layout1"
+                   placeholder="Password">
             <div class="xzs-cover-block1-spacer1"></div>
             <div class="xzs-cover-block1-item1">
                 <div
@@ -81,7 +82,7 @@
             </div>
         </div>
         <div class="xzs-cover-block layout">
-            <h3 class="xzs-subtitle layout">LOGIN</h3>
+            <a href="{{url('/mobile/dashboard')}}" style="border: none; background: none" class="xzs-subtitle layout">LOGIN</a>
         </div>
     </div>
 </div>

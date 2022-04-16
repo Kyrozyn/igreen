@@ -9,14 +9,20 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Pelaporan extends Model implements HasMedia
 {
-    use HasFactory,  InteractsWithMedia;
+    use HasFactory, InteractsWithMedia;
 
     public function historypelaporan()
     {
-        $this->hasMany(HistoryPelaporan::class);
+        return $this->hasMany(HistoryPelaporan::class);
     }
 
-    public function laporanuser(){
-        $this->hasMany(LaporanUser::class);
+    public function laporanuser()
+    {
+        return $this->hasMany(LaporanUser::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
