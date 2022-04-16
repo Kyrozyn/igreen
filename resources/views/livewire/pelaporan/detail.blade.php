@@ -91,9 +91,8 @@
                                 @else
                                     {{$laporanuser->content ?? ""}}
                                 @endif
-                                {{$laporanuser->getFirstMediaUrl('file') ? '<a href="'.$laporanuser->getFirstMediaUrl('file').'" target="_blank">Download File</a>' : ''}}
+                                <a href="{{$laporanuser->getFirstMediaUrl('file')}}" target="_blank">Download File</a>
                             </h3>
-
                         </div>
                     </div>
                 @endforeach
