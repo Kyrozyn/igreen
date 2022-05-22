@@ -111,6 +111,7 @@
                     </div>
                 </div>
             </div>
+            @if($detail->status != 'Selesai')
             <div class="block-content">
                 <div class="form-group">
                     <button class="btn btn-primary w-100" wire:click="terima">Terima</button>
@@ -118,6 +119,7 @@
                     {{--                    <a href="{{url('/dashboard/laporan/add/'.$menu_id)}}" class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit">Tambah Laporan</a>--}}
                 </div>
             </div>
+                @endif
         </div>
         <!-- END Your Block -->
     </div>
