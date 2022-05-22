@@ -113,8 +113,8 @@
             </div>
             <div class="block-content">
                 <div class="form-group">
-                    <button class="btn btn-primary w-100">Terima</button>
-                    <button class="btn btn-danger w-100 mt-4">Tolak</button>
+                    <button class="btn btn-primary w-100" wire:click="terima">Terima</button>
+                    <button class="btn btn-danger w-100 mt-4" wire:click="tolak">Tolak</button>
                     {{--                    <a href="{{url('/dashboard/laporan/add/'.$menu_id)}}" class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit">Tambah Laporan</a>--}}
                 </div>
             </div>

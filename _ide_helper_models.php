@@ -15,9 +15,12 @@ namespace App\Models{
  * App\Models\FilePeraturan
  *
  * @property int $id
+ * @property int $jenis_file_peraturan_id
  * @property string $nama_file
+ * @property string|null $url
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\JenisFilePeraturan|null $jenis
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
  * @property-read int|null $media_count
  * @method static \Illuminate\Database\Eloquent\Builder|FilePeraturan newModelQuery()
@@ -25,8 +28,10 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|FilePeraturan query()
  * @method static \Illuminate\Database\Eloquent\Builder|FilePeraturan whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FilePeraturan whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FilePeraturan whereJenisFilePeraturanId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FilePeraturan whereNamaFile($value)
  * @method static \Illuminate\Database\Eloquent\Builder|FilePeraturan whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FilePeraturan whereUrl($value)
  */
 	class FilePeraturan extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
@@ -81,11 +86,31 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\JenisFilePeraturan
+ *
+ * @property int $id
+ * @property string $nama
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|JenisFilePeraturan newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JenisFilePeraturan newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|JenisFilePeraturan query()
+ * @method static \Illuminate\Database\Eloquent\Builder|JenisFilePeraturan whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JenisFilePeraturan whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JenisFilePeraturan whereNama($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|JenisFilePeraturan whereUpdatedAt($value)
+ */
+	class JenisFilePeraturan extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Laporan
  *
  * @property int $id
  * @property int|null $menu_id
  * @property string $name
+ * @property string|null $satuan
  * @property string|null $type
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -97,6 +122,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereMenuId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereSatuan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Laporan whereUpdatedAt($value)
  */
@@ -108,11 +134,12 @@ namespace App\Models{
  * App\Models\LaporanUser
  *
  * @property int $id
+ * @property int $laporan_id
  * @property int $pelaporan_id
- * @property int $user_id
  * @property string|null $content
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Laporan|null $laporan
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
  * @property-read int|null $media_count
  * @property-read \App\Models\Pelaporan|null $pelaporan
@@ -123,9 +150,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereContent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereLaporanId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser wherePelaporanId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|LaporanUser whereUserId($value)
  */
 	class LaporanUser extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
@@ -164,20 +191,35 @@ namespace App\Models{
  * App\Models\Pelaporan
  *
  * @property int $id
- * @property string $Status
+ * @property string $status
+ * @property string|null $status_detail
+ * @property string|null $tanggal_penyelesaian_awal
+ * @property string|null $tanggal_penyelesaian_akhir
+ * @property string|null $catatan
  * @property int $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\HistoryPelaporan[] $historypelaporan
+ * @property-read int|null $historypelaporan_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\LaporanUser[] $laporanuser
+ * @property-read int|null $laporanuser_count
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Spatie\MediaLibrary\MediaCollections\Models\Media[] $media
+ * @property-read int|null $media_count
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereCatatan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereStatusDetail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereTanggalPenyelesaianAkhir($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereTanggalPenyelesaianAwal($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pelaporan whereUserId($value)
  */
-	class Pelaporan extends \Eloquent {}
+	class Pelaporan extends \Eloquent implements \Spatie\MediaLibrary\HasMedia {}
 }
 
 namespace App\Models{
