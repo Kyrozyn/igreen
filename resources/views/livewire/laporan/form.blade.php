@@ -56,6 +56,14 @@
                                 <input class="form-check-input" type="radio" id="jenislaporan5" name="jenislaporan" value="option" wire:model="jenislaporan">
                                 <label class="form-check-label" for="jenislaporan5">Opsi Ya/Tidak</label>
                             </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="jenislaporan6" name="jenislaporan" value="optionc" wire:model="jenislaporan">
+                                <label class="form-check-label" for="jenislaporan5">C/H/M/L</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="jenislaporan7" name="jenislaporan" value="option1" wire:model="jenislaporan">
+                                <label class="form-check-label" for="jenislaporan5">1/2/3/4/5</label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <button onclick="history.back()" type="button" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit">Kembali</button>
