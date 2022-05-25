@@ -57,10 +57,6 @@
                                 <label class="form-check-label" for="jenislaporan5">Opsi Ya/Tidak</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="jenislaporan6" name="jenislaporan" value="optionc" wire:model="jenislaporan">
-                                <label class="form-check-label" for="jenislaporan6">C/H/M/L</label>
-                            </div>
-                            <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" id="jenislaporan7" name="jenislaporan" value="option1" wire:model="jenislaporan">
                                 <label class="form-check-label" for="jenislaporan7">1/2/3/4/5</label>
                             </div>
