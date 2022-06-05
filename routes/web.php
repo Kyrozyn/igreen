@@ -34,6 +34,8 @@ Route::get('/dashboard/menu/{origin}/{id}',\App\Http\Livewire\TableMenu::class);
     Route::get('/dashboard/fileperaturan',\App\Http\Livewire\FilePeraturan\Table::class);
     Route::get('/dashboard/fileperaturan/jenis',\App\Http\Livewire\FilePeraturan\Jenis::class);
     Route::get('/dashboard/fileperaturan/add',\App\Http\Livewire\FilePeraturan\Form::class);
+
+    Route::get('/account/add',\App\Http\Livewire\FilePeraturan\Form::class);
 });
 
 //api
