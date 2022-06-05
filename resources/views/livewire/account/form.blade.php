@@ -50,7 +50,7 @@
 
                         <div class="form-group">
                             <button onclick="history.back()" type="button" class="btn btn-alt-info" id="btnsubmit" name="btnsubmit">Kembali</button>
-                            <button class="btn btn-primary" id="btnsubmit" name="btnsubmit" type="submit" value="submit">Submit</button>
+                            <button class="btn btn-primary" id="btnsubmit" name="btnsubmit" wire:click="tambah">Submit</button>
                         </div>
                     </div>
                 </form>
