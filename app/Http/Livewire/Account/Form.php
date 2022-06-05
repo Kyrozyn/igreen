@@ -19,7 +19,7 @@ class Form extends Component
         $this->validate([
             'nama' => 'required',
             'password' => 'required',
-            'email' => 'required|email|unique:User,email',
+            'email' => 'required|email|unique:users,email',
         ]);
         $account = new User();
         $account->name = $this->nama;
