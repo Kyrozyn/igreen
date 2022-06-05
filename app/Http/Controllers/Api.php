@@ -169,7 +169,12 @@ class Api extends Controller
         $count_menunggu_konfirmasi = Pelaporan::where('status', 'Menunggu Konfirmasi')->where('user_id',$user_id)->count();
         $count_revisi = Pelaporan::where('status', 'Revisi')->where('user_id',$user_id)->count();
         $count_selesai = Pelaporan::where('status', 'Selesai')->where('user_id',$user_id)->count();
-        return response()->json(['message' => 'Success', 'diajukan' => $count_diajukan,'menunggukonfirmasi' => $count_menunggu_konfirmasi,'revisi' => $count_revisi,'selesai' => $count_selesai], 200);
+        return response()->json(['message' => 'Success', "data" => [
+            ["name" => "Diajukan","icon" => asset('assets/icon/diajukan.png'),"count" => $count_diajukan],
+            ["name" => "Menunggu Konfirmasi","icon" => asset('assets/icon/menunggu_konfirmasi.png'),"count" => $count_menunggu_konfirmasi],
+            ["name" => "Revisi","icon" => asset('assets/icon/revisi.png'),"count" => $count_revisi],
+            ["name" => "Selesai","icon" => asset('assets/icon/selesai.png'),"count" => $count_selesai],
+        ]], 200);
     }
 
     public function getjenisfileperaturan(){
