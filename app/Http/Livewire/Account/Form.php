@@ -19,14 +19,14 @@ class Form extends Component
         $this->validate([
             'nama' => 'required',
             'password' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
         ]);
         $account = new User();
         $account->name = $this->nama;
         $account->password = \Hash::make($this->password);
         $account->email = $this->email;
         $account->save();
-        $this->reset();
+//        $this->reset();
         $this->alert('success', 'Berhasil menambahkan akun');
     }
 }
