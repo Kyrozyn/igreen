@@ -95,7 +95,7 @@
                         </div>
                     </div>
                 @endforeach
-                @foreach($detail->getMedia() as $key => $media)
+                @foreach($detail->getMedia('file') as $key => $media)
                     <a href="{{$media->getUrl()}}" target="_blank">Download File {{$key+1}}</a>
                 @endforeach
             </div>
