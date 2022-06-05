@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="block-content">
-                <form wire:submit.prevent="submit">
+                <form>
                     <div class="col-lg-8 col-xl-8">
                         <div class="form-group">
                             <label for="nama">Nama</label>
