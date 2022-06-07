@@ -52,8 +52,11 @@
                             </td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <a href="{{url('/dashboard/menu/frontmenu/'.$frontmenu->id)}}" type="button" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Lihat Menu">
+                                    <a href="{{url('/dashboard/menu/frontmenu/'.$frontmenu->id)}}" type="button" class="btn btn-sm btn-primary js-tooltip-enabled ml-2" data-toggle="tooltip" title="" data-original-title="Lihat Menu">
                                         Lihat Menu
+                                    </a>
+                                    <a href="{{url('/dashboard/frontmenu/add?id_edit='.$frontmenu->id)}}" type="button" class="btn btn-sm btn-primary js-tooltip-enabled mx-2" data-toggle="tooltip" title="" data-original-title="Lihat Menu">
+                                        Edit Menu
                                     </a>
                                     <button type="button" class="btn btn-sm btn-danger js-tooltip-enabled" data-toggle="tooltip" title="" data-original-title="Delete" wire:click="delete({{$frontmenu->id}})">
                                         Hapus
